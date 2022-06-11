@@ -1,0 +1,18 @@
+{
+  "name": "fabulist-core",
+  "version": "1.0.0",
+  "description": "Independent runtime for Fabulist",
+  "main": "index.js",
+  "repository": "https://github.com/Campfyr/fabulist-core.git",
+  "author": "JG Rivera <rivera.jga10@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.1",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.4",
+    "typescript": "^4.7.3"
+  }
+}
