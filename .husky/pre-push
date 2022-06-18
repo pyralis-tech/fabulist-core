@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+if git diff HEAD --quiet; then
+    yarn test
+else
+    echo "Cannot run pre-push tests due to local uncommitted changes"
+    exit 1
+fi
