@@ -4,7 +4,7 @@ import { Quote } from './quote';
 import { StoryNode } from './story-node';
 
 export class Dialogue extends StoryNode {
-    private nextLinkageId: number = 0;
+    private nextLinkageId = 0;
 
     public constructor(
         protected id: number,
