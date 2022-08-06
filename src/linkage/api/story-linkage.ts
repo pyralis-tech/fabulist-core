@@ -1,11 +1,13 @@
+import { StoryElement, StoryElementId } from '../../element';
 import { StoryNode } from '../../node';
 
-export abstract class StoryLinkage {
+export abstract class StoryLinkage extends StoryElement {
     public constructor(
-        protected id: number,
+        protected id: StoryElementId,
         protected previousNode: StoryNode,
         protected nextNode: StoryNode
     ) {
+        super(id);
         if (previousNode === nextNode) {
             throw 'Previous and next node cannot be the same';
         }
@@ -17,9 +19,5 @@ export abstract class StoryLinkage {
 
     public getNextNode(): StoryNode {
         return this.nextNode;
-    }
-
-    public getId(): number {
-        return this.id;
     }
 }

@@ -1,13 +1,11 @@
+import { StoryElement, StoryElementId } from '../../element';
 import { StoryLinkage } from '../../linkage';
 
-export class StoryNode {
+export class StoryNode extends StoryElement {
     protected linkages: StoryLinkage[];
 
-    public constructor(protected id: number) {
-        if (id == null) {
-            throw 'Story node needs to have an id';
-        }
-
+    public constructor(protected id: StoryElementId) {
+        super(id);
         this.linkages = [];
     }
 
@@ -33,9 +31,5 @@ export class StoryNode {
 
     public canContinue(): boolean {
         return this.linkages.length > 0;
-    }
-
-    public getId(): number {
-        return this.id;
     }
 }
