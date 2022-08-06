@@ -15,7 +15,7 @@ export class Dialogue extends StoryNode {
     }
 
     public interact(chosenId: number): StoryNode | undefined {
-        const linkage = this.getLinkage(chosenId);
+        const linkage = this.getLinkageById(chosenId);
         return linkage?.getNextNode();
     }
 
@@ -31,7 +31,7 @@ export class Dialogue extends StoryNode {
     }
 
     public getChoice(id: number): Choice {
-        const choice = this.getLinkage(id) as Choice;
+        const choice = this.getLinkageById(id) as Choice;
 
         if (choice == null) {
             throw `Choice with id of ${id} not found`;

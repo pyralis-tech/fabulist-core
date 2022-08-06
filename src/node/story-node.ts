@@ -19,7 +19,7 @@ export class StoryNode {
         this.linkages.push(linkage);
     }
 
-    public getLinkage(id: number): StoryLinkage | undefined {
+    public getLinkageById(id: number): StoryLinkage | undefined {
         return this.linkages.find((linkage) => linkage.getId() === id);
     }
 

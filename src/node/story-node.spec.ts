@@ -27,7 +27,7 @@ describe('StoryNode', () => {
         nodeA.addLinkage(linkage);
         expect(nodeA.getLinkages()).toHaveLength(1);
 
-        const firstLinkage = nodeA.getLinkage(0);
+        const firstLinkage = nodeA.getLinkageById(0);
         expect(firstLinkage?.getId()).toEqual(0);
         expect(firstLinkage?.getPreviousNode()).toEqual(nodeA);
         expect(firstLinkage?.getNextNode()).toEqual(nodeB);
