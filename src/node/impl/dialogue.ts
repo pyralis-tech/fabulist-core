@@ -2,19 +2,20 @@ import { Choice } from '../../linkage';
 import { Conversant } from './conversant';
 import { Quote } from './quote';
 import { StoryNode } from '../api';
+import { StoryElementId } from '../../element';
 
 export class Dialogue extends StoryNode {
     private nextLinkageId = 0;
 
     public constructor(
-        protected id: number,
+        protected id: StoryElementId,
         protected conversant: Conversant,
         protected quote: Quote
     ) {
         super(id);
     }
 
-    public interact(chosenId: number): StoryNode | undefined {
+    public interact(chosenId: StoryElementId): StoryNode | undefined {
         const linkage = this.getLinkageById(chosenId);
         return linkage?.getNextNode();
     }

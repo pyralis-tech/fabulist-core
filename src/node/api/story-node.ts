@@ -17,7 +17,7 @@ export class StoryNode extends StoryElement {
         this.linkages.push(linkage);
     }
 
-    public getLinkageById(id: number): StoryLinkage | undefined {
+    public getLinkageById(id: StoryElementId): StoryLinkage | undefined {
         return this.linkages.find((linkage) => linkage.getId() === id);
     }
 
