@@ -7,7 +7,15 @@ describe('Dialogue', () => {
 
     it('should create a new instance', () => {
         const dialogue = new Dialogue(0, bob, new Quote('Hello'));
+        expect(dialogue).toBeTruthy();
+        expect(dialogue.getId()).toEqual(0);
+        expect(dialogue.getChoices()).toEqual([]);
         expect(dialogue.toString()).toEqual('Bob says Hello');
+    });
+
+    it('should return empty next and previous dialogues if empty', () => {
+        const dialogue = new Dialogue(0, bob, new Quote('Hello'));
+        expect(dialogue.getNextDialogues()).toEqual([]);
     });
 
     it('should add a choice', () => {

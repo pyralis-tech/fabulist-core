@@ -1,7 +1,7 @@
-import { Choice } from '../linkage/choice';
+import { Choice } from '../../linkage';
 import { Conversant } from './conversant';
 import { Quote } from './quote';
-import { StoryNode } from './story-node';
+import { StoryNode } from '../api';
 
 export class Dialogue extends StoryNode {
     private nextLinkageId = 0;
@@ -44,6 +44,12 @@ export class Dialogue extends StoryNode {
         return this.getLinkages().filter(
             (linkage) => linkage instanceof Choice
         ) as Choice[];
+    }
+
+    public getNextDialogues(): Dialogue[] {
+        return this.getNextNodes().filter(
+            (node) => node instanceof Dialogue
+        ) as Dialogue[];
     }
 
     public getConversant(): Conversant {

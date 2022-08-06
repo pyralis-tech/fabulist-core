@@ -1,2 +1,2 @@
-export * from './choice';
-export * from './story-linkage';
+export * from './api';
+export * from './impl';

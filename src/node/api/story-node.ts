@@ -1,4 +1,4 @@
-import { StoryLinkage } from '../linkage/story-linkage';
+import { StoryLinkage } from '../../linkage';
 
 export class StoryNode {
     protected linkages: StoryLinkage[];
@@ -11,7 +11,7 @@ export class StoryNode {
         this.linkages = [];
     }
 
-    public addLinkage(linkage: StoryLinkage): void {
+    protected addLinkage(linkage: StoryLinkage): void {
         if (linkage.getPreviousNode() !== this) {
             throw 'Cannot add linkage that comes from another node';
         }

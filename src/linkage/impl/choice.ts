@@ -1,5 +1,5 @@
-import { StoryNode } from '../node/story-node';
-import { StoryLinkage } from './story-linkage';
+import { StoryNode } from '../../node';
+import { StoryLinkage } from '../api';
 
 export class Choice extends StoryLinkage {
     public constructor(

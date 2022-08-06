@@ -1,6 +1,6 @@
-import { StoryNode } from '../node/story-node';
+import { StoryNode } from '../../node';
 
-export class StoryLinkage {
+export abstract class StoryLinkage {
     public constructor(
         protected id: number,
         protected previousNode: StoryNode,
