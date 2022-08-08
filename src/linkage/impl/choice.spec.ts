@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Conversant, Dialogue, Quote } from '../../node';
 import { Choice } from './choice';
 

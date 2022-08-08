@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Conversant } from './conversant';
 import { Dialogue } from './dialogue';
 import { Quote } from './quote';
