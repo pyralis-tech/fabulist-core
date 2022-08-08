@@ -21,12 +21,7 @@ export class Dialogue extends StoryNode {
     }
 
     public addChoice(content: string, nextNode: StoryNode): void {
-        const choice = new Choice(
-            this.nextLinkageId++,
-            content,
-            this,
-            nextNode
-        );
+        const choice = new Choice(this.nextLinkageId++, content, this, nextNode);
 
         this.addLinkage(choice);
     }
@@ -42,15 +37,11 @@ export class Dialogue extends StoryNode {
     }
 
     public getChoices(): Choice[] {
-        return this.getLinkages().filter(
-            (linkage) => linkage instanceof Choice
-        ) as Choice[];
+        return this.getLinkages().filter((linkage) => linkage instanceof Choice) as Choice[];
     }
 
     public getNextDialogues(): Dialogue[] {
-        return this.getNextNodes().filter(
-            (node) => node instanceof Dialogue
-        ) as Dialogue[];
+        return this.getNextNodes().filter((node) => node instanceof Dialogue) as Dialogue[];
     }
 
     public getConversant(): Conversant {
