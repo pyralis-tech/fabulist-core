@@ -1,37 +1,33 @@
-import { Choice } from '../linkage/choice';
+import { Choice } from '../../linkage';
 import { Conversant } from './conversant';
 import { Quote } from './quote';
-import { StoryNode } from './story-node';
+import { StoryNode } from '../api';
+import { StoryElementId } from '../../element';
 
 export class Dialogue extends StoryNode {
     private nextLinkageId = 0;
 
     public constructor(
-        protected id: number,
+        protected id: StoryElementId,
         protected conversant: Conversant,
         protected quote: Quote
     ) {
         super(id);
     }
 
-    public interact(chosenId: number): StoryNode | undefined {
-        const linkage = this.getLinkage(chosenId);
+    public interact(chosenId: StoryElementId): StoryNode | undefined {
+        const linkage = this.getLinkageById(chosenId);
         return linkage?.getNextNode();
     }
 
     public addChoice(content: string, nextNode: StoryNode): void {
-        const choice = new Choice(
-            this.nextLinkageId++,
-            content,
-            this,
-            nextNode
-        );
+        const choice = new Choice(this.nextLinkageId++, content, this, nextNode);
 
         this.addLinkage(choice);
     }
 
     public getChoice(id: number): Choice {
-        const choice = this.getLinkage(id) as Choice;
+        const choice = this.getLinkageById(id) as Choice;
 
         if (choice == null) {
             throw `Choice with id of ${id} not found`;
@@ -41,9 +37,11 @@ export class Dialogue extends StoryNode {
     }
 
     public getChoices(): Choice[] {
-        return this.getLinkages().filter(
-            (linkage) => linkage instanceof Choice
-        ) as Choice[];
+        return this.getLinkages().filter((linkage) => linkage instanceof Choice) as Choice[];
+    }
+
+    public getNextDialogues(): Dialogue[] {
+        return this.getNextNodes().filter((node) => node instanceof Dialogue) as Dialogue[];
     }
 
     public getConversant(): Conversant {

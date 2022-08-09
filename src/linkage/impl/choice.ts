@@ -1,9 +1,10 @@
-import { StoryNode } from '../node/story-node';
-import { StoryLinkage } from './story-linkage';
+import { StoryElementId } from '../../element';
+import { StoryNode } from '../../node';
+import { StoryLinkage } from '../api';
 
 export class Choice extends StoryLinkage {
     public constructor(
-        protected id: number,
+        protected id: StoryElementId,
         protected text: string,
         protected previousNode: StoryNode,
         protected nextNode: StoryNode

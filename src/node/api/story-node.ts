@@ -1,17 +1,15 @@
-import { StoryLinkage } from '../linkage/story-linkage';
+import { StoryElement, StoryElementId } from '../../element';
+import { StoryLinkage } from '../../linkage';
 
-export class StoryNode {
+export class StoryNode extends StoryElement {
     protected linkages: StoryLinkage[];
 
-    public constructor(protected id: number) {
-        if (id == null) {
-            throw 'Story node needs to have an id';
-        }
-
+    public constructor(protected id: StoryElementId) {
+        super(id);
         this.linkages = [];
     }
 
-    public addLinkage(linkage: StoryLinkage): void {
+    protected addLinkage(linkage: StoryLinkage): void {
         if (linkage.getPreviousNode() !== this) {
             throw 'Cannot add linkage that comes from another node';
         }
@@ -19,7 +17,7 @@ export class StoryNode {
         this.linkages.push(linkage);
     }
 
-    public getLinkage(id: number): StoryLinkage | undefined {
+    public getLinkageById(id: StoryElementId): StoryLinkage | undefined {
         return this.linkages.find((linkage) => linkage.getId() === id);
     }
 
@@ -33,9 +31,5 @@ export class StoryNode {
 
     public canContinue(): boolean {
         return this.linkages.length > 0;
-    }
-
-    public getId(): number {
-        return this.id;
     }
 }
