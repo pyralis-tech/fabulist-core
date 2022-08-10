@@ -1,6 +1,6 @@
 {
-  "name": "fabulist-core",
-  "version": "1.0.0",
+  "name": "@pyralistech/fabulist-core",
+  "version": "0.0.0",
   "description": "Independent runtime for Fabulist",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
