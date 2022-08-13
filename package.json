@@ -11,6 +11,7 @@
   "author": "JG Rivera <rivera.jga10@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "prepublishOnly": "yarn build",
     "build": "tsc",
     "test": "vitest",
     "coverage": "vitest run --coverage",
