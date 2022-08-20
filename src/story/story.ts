@@ -9,4 +9,8 @@ export class Story {
     public constructor() {
         this.containers = [];
     }
+
+    public getContainers(): StoryContainer[] {
+        return this.containers;
+    }
 }
