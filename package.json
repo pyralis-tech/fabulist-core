@@ -7,7 +7,7 @@
   "files": [
     "/dist"
   ],
-  "repository": "https://github.com/Campfyr/fabulist-core.git",
+  "repository": "https://github.com/pyralistech/fabulist-core.git",
   "author": "JG Rivera <rivera.jga10@gmail.com>",
   "license": "MIT",
   "scripts": {
