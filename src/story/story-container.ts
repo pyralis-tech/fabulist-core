@@ -15,6 +15,10 @@ export class StoryContainer {
         this.nodes.push(node);
     }
 
+    public getNodes(): StoryNode[] {
+        return this.nodes;
+    }
+
     public clear(): void {
         this.nodes = [];
     }
