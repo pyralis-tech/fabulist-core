@@ -5,5 +5,6 @@ describe('Story container', () => {
     it('should create a new instance', () => {
         const container = new StoryContainer();
         expect(container).toBeTruthy();
+        expect(container.getNodes()).toEqual([]);
     });
 });
