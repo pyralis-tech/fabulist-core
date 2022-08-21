@@ -1,5 +1,5 @@
-import { StoryElementId } from '../element';
-import { StoryNode } from '../node';
+import { StoryElementId } from '../../types';
+import { StoryNode } from '../api';
 
 /**
  * A collection of story nodes that is effectively a subgraph. It can represent an act

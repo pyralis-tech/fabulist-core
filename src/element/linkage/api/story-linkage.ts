@@ -1,5 +1,6 @@
-import { StoryElement, StoryElementId } from '../../element';
+import { StoryElement } from '../../api';
 import { StoryNode } from '../../node';
+import { StoryElementId } from '../../types';
 
 export abstract class StoryLinkage extends StoryElement {
     public constructor(

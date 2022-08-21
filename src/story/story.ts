@@ -1,5 +1,4 @@
-import { StoryElementId } from '../element';
-import { StoryContainer } from './story-container';
+import { StoryContainer, StoryElementId } from '../element';
 
 /**
  * A collection of story containers.

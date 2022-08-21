@@ -2,7 +2,7 @@ import { Choice } from '../../linkage';
 import { Conversant } from './conversant';
 import { Quote } from './quote';
 import { StoryNode } from '../api';
-import { StoryElementId } from '../../element';
+import { StoryElementId } from '../..';
 
 export class Dialogue extends StoryNode {
     private nextLinkageId = 0;

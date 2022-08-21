@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { Conversant, Dialogue, Quote } from '../../node';
-import { Choice } from './choice';
+import { Choice } from '.';
 import { v4 as uuidv4 } from 'uuid';
+import { Conversant, Dialogue, Quote } from '../..';
 
 describe('Choice', () => {
     const bob = new Conversant('Bob');

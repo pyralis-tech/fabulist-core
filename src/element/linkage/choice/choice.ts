@@ -1,5 +1,5 @@
-import { StoryElementId } from '../../element';
 import { StoryNode } from '../../node';
+import { StoryElementId } from '../../types';
 import { StoryLinkage } from '../api';
 
 export class Choice extends StoryLinkage {

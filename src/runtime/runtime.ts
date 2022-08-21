@@ -1,5 +1,5 @@
 import { StoryElementId } from '../element';
-import { StoryNode } from '../node';
+import { StoryNode } from '../element/node';
 import { Story } from '../story';
 
 export class FabulistRuntime {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { Dialogue } from '../node';
+import { Dialogue } from '../..';
 import { StoryContainer } from './story-container';
 import { v4 as uuidv4 } from 'uuid';
 
