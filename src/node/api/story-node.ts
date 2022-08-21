@@ -1,7 +1,7 @@
 import { StoryElement, StoryElementId } from '../../element';
 import { StoryLinkage } from '../../linkage';
 
-export class StoryNode extends StoryElement {
+export abstract class StoryNode extends StoryElement {
     protected linkages: StoryLinkage[];
 
     public constructor(protected id: StoryElementId, protected parent?: StoryNode) {
