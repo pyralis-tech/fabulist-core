@@ -2,26 +2,30 @@ import { describe, it, expect } from 'vitest';
 import { Conversant } from './conversant';
 import { Dialogue } from './dialogue';
 import { Quote } from './quote';
+import { v4 as uuidv4 } from 'uuid';
 
 describe('Dialogue', () => {
     const bob = new Conversant('Bob');
 
     it('should create a new instance', () => {
-        const dialogue = new Dialogue(0, bob, new Quote('Hello'));
+        const dialogueId = uuidv4();
+        const dialogue = new Dialogue(dialogueId, bob, new Quote('Hello'));
+
         expect(dialogue).toBeTruthy();
-        expect(dialogue.getId()).toEqual(0);
+        expect(dialogue.getId()).toEqual(dialogueId);
         expect(dialogue.getChoices()).toEqual([]);
         expect(dialogue.toString()).toEqual('Bob says Hello');
     });
 
     it('should return empty next and previous dialogues if empty', () => {
-        const dialogue = new Dialogue(0, bob, new Quote('Hello'));
+        const dialogue = new Dialogue(uuidv4(), bob, new Quote('Hello'));
+
         expect(dialogue.getNextDialogues()).toEqual([]);
     });
 
     it('should add a choice', () => {
-        const hello = new Dialogue(0, bob, new Quote('Hello'));
-        const seeYou = new Dialogue(1, bob, new Quote('See you, then'));
+        const hello = new Dialogue(uuidv4(), bob, new Quote('Hello'));
+        const seeYou = new Dialogue(uuidv4(), bob, new Quote('See you, then'));
 
         hello.addChoice('Bye', seeYou);
 
@@ -36,8 +40,8 @@ describe('Dialogue', () => {
     });
 
     it('should properly interact with a choice', () => {
-        const hello = new Dialogue(0, bob, new Quote('Hello'));
-        const seeYou = new Dialogue(1, bob, new Quote('See you, then'));
+        const hello = new Dialogue(uuidv4(), bob, new Quote('Hello'));
+        const seeYou = new Dialogue(uuidv4(), bob, new Quote('See you, then'));
 
         hello.addChoice('Bye', seeYou);
         hello.addChoice('Ciao', seeYou);
