@@ -15,9 +15,8 @@ export class Dialogue extends StoryNode {
         super(id);
     }
 
-    public interact(chosenId: StoryElementId): StoryNode | undefined {
-        const linkage = this.getLinkageById(chosenId);
-        return linkage?.getNextNode();
+    public interact(choiceId: StoryElementId): StoryNode | undefined {
+        return this.traverseTo(choiceId);
     }
 
     public addChoice(content: string, nextNode: StoryNode): void {

@@ -17,6 +17,11 @@ export abstract class StoryNode extends StoryElement {
         this.linkages.push(linkage);
     }
 
+    protected traverseTo(linkageId: StoryElementId): StoryNode | undefined {
+        const linkage = this.getLinkageById(linkageId);
+        return linkage?.getNextNode();
+    }
+
     public getLinkageById(id: StoryElementId): StoryLinkage | undefined {
         return this.linkages.find((linkage) => linkage.getId() === id);
     }
