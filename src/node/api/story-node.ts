@@ -4,7 +4,7 @@ import { StoryLinkage } from '../../linkage';
 export class StoryNode extends StoryElement {
     protected linkages: StoryLinkage[];
 
-    public constructor(protected id: StoryElementId) {
+    public constructor(protected id: StoryElementId, protected parent?: StoryNode) {
         super(id);
         this.linkages = [];
     }
@@ -31,5 +31,13 @@ export class StoryNode extends StoryElement {
 
     public canContinue(): boolean {
         return this.linkages.length > 0;
+    }
+
+    public setParent(parent: StoryNode): void {
+        this.parent = parent;
+    }
+
+    public getParent(): StoryNode | undefined {
+        return this.parent;
     }
 }
