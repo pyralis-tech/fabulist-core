@@ -15,6 +15,10 @@ export class Dialogue extends StoryNode {
         super(id);
     }
 
+    public static of(id: StoryElementId, conversant: string, quote: string): Dialogue {
+        return new Dialogue(id, new Conversant(conversant), new Quote(quote));
+    }
+
     public interact(choiceId: StoryElementId): StoryNode | undefined {
         return this.traverseTo(choiceId);
     }
